@@ -58,6 +58,10 @@ RUN pip3 install scvelo
 RUN R -e "install.packages(c('Seurat','ranger','plyr','dplyr','Matrix'))"
 
 # Install loomR to convert Seurat to loom files
+RUN apt-get install -y \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libssh2-1-dev
 RUN R -e "install.packages('devtools')"
 RUN R -e "devtools::install_github('hhoeflin/hdf5r')"
 RUN R -e "devtools::install_github('mojaveazure/loomR', ref = 'develop')"
