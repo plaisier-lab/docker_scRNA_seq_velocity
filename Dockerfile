@@ -3,8 +3,18 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 MAINTAINER Chris Plaisier <plaisier@asu.edu>
 RUN apt-get update
 
+# Get add-apt-repository function
+RUN apt-get install --yes software-properties-common
+
+# Ensure the latest version of R is installed
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+RUN add-apt-repository "deb [trusted=yes] https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/"
+RUN apt-get update
+
+# Fix issue with install wanting to be interactive
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Instal main dependencies
 RUN apt-get install --yes \
  build-essential \
  gcc-multilib \
