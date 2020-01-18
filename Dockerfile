@@ -46,13 +46,13 @@ RUN pip3 install \
     biopython
 
 # Install velocyto
-RUN pip install scanpy
+RUN pip3 install scanpy
 
 # Install velocyto
-RUN pip install velocyto
+RUN pip3 install velocyto
 
 # Install scvelo
-RUN pip install scvelo
+RUN pip3 install scvelo
 
 # Install Seurat
 RUN R -e "install.packages(c('Seurat','ranger','plyr','dplyr','Matrix'))"
