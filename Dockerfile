@@ -35,7 +35,11 @@ RUN apt-get install --yes \
  libncursesw5-dev \
  libbz2-dev \
  zlib1g-dev \
- liblzma-dev
+ liblzma-dev \
+ autoconf \
+ libcurl4-openssl-dev \
+ libssl-dev \
+ libssh2-1-dev
 
 # Install additional python packages using pip3
 RUN pip3 install \
@@ -50,11 +54,6 @@ RUN pip3 install \
     click \
     pandas \
     biopython
-
-# Install autoconf
-RUN apt-get install -y \
- autoconf \
- libcurl4-openssl-dev
 
 # Install HTSLIB
 WORKDIR /tmp
@@ -77,15 +76,6 @@ RUN autoconf -Wno-syntax
 RUN ./configure
 RUN make
 RUN make install
-
-# Install HTSLIB
-RUN cd /tmp
-RUN wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2
-RUN tar -vxjf htslib-1.9.tar.bz2
-RUN cd htslib-1.9
-RUN make
-RUN make install
-
 
 # Install velocyto
 RUN pip3 install scanpy
