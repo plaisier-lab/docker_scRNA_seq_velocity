@@ -56,10 +56,10 @@ RUN apt-get install -y \
  autoconf
 
 # Install HTSLIB
-RUN cd /tmp
+WORKDIR /tmp
 RUN wget https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2
 RUN tar -vxjf htslib-1.10.2.tar.bz2
-RUN cd htslib-1.10.2
+WORKDIR /tmp/htslib-1.10.2
 RUN autoheader
 RUN autoconf
 RUN ./configure
@@ -67,10 +67,10 @@ RUN make
 RUN make install
 
 # Install SAMTOOLS
-RUN cd /tmp
+WORKDIR /tmp
 RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2
 RUN tar -vxjf samtools-1.10.tar.bz2
-RUN cd samtools-1.10
+WORKDIR /tmp/samtools-1.10
 RUN autoheader
 RUN autoconf -Wno-syntax
 RUN ./configure
