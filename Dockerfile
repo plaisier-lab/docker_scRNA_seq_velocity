@@ -51,6 +51,10 @@ RUN pip3 install \
     pandas \
     biopython
 
+# Install autoconf
+RUN apt-get install -y \
+ autoconf
+
 # Install HTSLIB
 RUN cd /tmp
 RUN wget https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2
