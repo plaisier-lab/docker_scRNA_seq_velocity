@@ -53,7 +53,8 @@ RUN pip3 install \
 
 # Install autoconf
 RUN apt-get install -y \
- autoconf
+ autoconf \
+ libcurl4-openssl-dev
 
 # Install HTSLIB
 WORKDIR /tmp
