@@ -29,7 +29,13 @@ RUN apt-get install --yes \
  r-base \
  r-base-dev \
  libhdf5-dev \
- libxml2-dev
+ libxml2-dev \
+ liblzma-dev \
+ libncurses5-dev \
+ libncursesw5-dev \
+ libbz2-dev \
+ zlib1g-dev \
+ liblzma-dev
 
 # Install additional python packages using pip3
 RUN pip3 install \
@@ -44,6 +50,31 @@ RUN pip3 install \
     click \
     pandas \
     biopython
+
+# Install HTSLIB
+RUN cd /tmp
+RUN wget https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2
+RUN tar -vxjf htslib-1.10.2.tar.bz2
+RUN cd htslib-1.10.2
+RUN make
+RUN make install
+
+# Install SAMTOOLS
+RUN cd /tmp
+RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2
+RUN tar -vxjf samtools-1.10.tar.bz2
+RUN cd samtools-1.10
+RUN make
+RUN make install
+
+# Install HTSLIB
+RUN cd /tmp
+RUN wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2
+RUN tar -vxjf htslib-1.9.tar.bz2
+RUN cd htslib-1.9
+RUN make
+RUN make install
+
 
 # Install velocyto
 RUN pip3 install scanpy
