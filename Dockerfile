@@ -99,4 +99,4 @@ RUN apt-get install -y \
 RUN R -e "install.packages('devtools')"
 RUN R -e "devtools::install_github('hhoeflin/hdf5r')"
 RUN R -e "devtools::install_github('mojaveazure/loomR', ref = 'develop')"
-
+RUN R -e "reticulate::py_install(packages ='umap-learn')"
