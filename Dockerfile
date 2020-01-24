@@ -87,6 +87,8 @@ RUN pip3 install velocyto
 RUN pip3 install scvelo
 
 # Install Seurat
+RUN R -e "install.packages('BiocManager')"
+RUN R -e "BiocManager::install('multtest')"
 RUN R -e "install.packages(c('Seurat','ranger','plyr','dplyr','Matrix'))"
 
 # Install loomR to convert Seurat to loom files
