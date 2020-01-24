@@ -99,5 +99,5 @@ RUN apt-get install -y \
 RUN R -e "install.packages('devtools')"
 RUN R -e "devtools::install_github('hhoeflin/hdf5r')"
 RUN R -e "devtools::install_github('mojaveazure/loomR', ref = 'develop')"
-RUN apt-get install -y python3-venv
+RUN apt-get install -y python3-venv leidenalg
 RUN R -e "reticulate::py_install(packages ='umap-learn')"
