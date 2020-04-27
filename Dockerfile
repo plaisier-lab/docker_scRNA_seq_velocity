@@ -114,6 +114,3 @@ RUN pip3 install clusim
 # Install scVI
 RUN pip3 install scVI
 
-# Install mygene
-RUN pip3 install mygene
-
