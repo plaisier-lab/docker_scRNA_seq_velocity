@@ -87,6 +87,8 @@ RUN pip3 install velocyto
 RUN pip3 install scvelo
 
 # Install Seurat
+RUN R -e "install.packages('BiocManager')"
+RUN R -e "BiocManager::install('multtest')"
 RUN R -e "install.packages(c('Seurat','ranger','plyr','dplyr','Matrix'))"
 
 # Install loomR to convert Seurat to loom files
@@ -97,6 +99,17 @@ RUN apt-get install -y \
 RUN R -e "install.packages('devtools')"
 RUN R -e "devtools::install_github('hhoeflin/hdf5r')"
 RUN R -e "devtools::install_github('mojaveazure/loomR', ref = 'develop')"
+RUN apt-get install -y python3-venv
+RUN R -e "reticulate::py_install(packages ='umap-learn')"
+
+# Install leidenalg for 
+RUN pip3 install leidenalg
+
+# Install mygene
+RUN pip3 install mygene
+
+# Install cluster analysis pacakge
+RUN pip3 install clusim
 
 # Install scVI
 RUN pip3 install scVI
