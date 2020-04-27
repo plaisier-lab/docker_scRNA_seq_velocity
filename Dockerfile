@@ -98,3 +98,9 @@ RUN R -e "install.packages('devtools')"
 RUN R -e "devtools::install_github('hhoeflin/hdf5r')"
 RUN R -e "devtools::install_github('mojaveazure/loomR', ref = 'develop')"
 
+# Install scVI
+RUN pip3 install scVI
+
+# Install mygene
+RUN pip3 install mygene
+
