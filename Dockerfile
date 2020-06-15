@@ -37,9 +37,13 @@ RUN apt-get install --yes \
  zlib1g-dev \
  liblzma-dev \
  autoconf \
+ automake \
+ flex \
+ bison \
  libcurl4-openssl-dev \
  libssl-dev \
- libssh2-1-dev
+ libssh2-1-dev \
+ libtool
 
 # Install additional python packages using pip3
 RUN pip3 install \
