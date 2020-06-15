@@ -114,3 +114,6 @@ RUN pip3 install clusim
 # Install scVI
 RUN pip3 install scVI
 
+# Install 
+RUN pip3 install umap-learn==0.3.9
+RUN pip3 install tensorflow
