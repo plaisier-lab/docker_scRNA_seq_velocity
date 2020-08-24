@@ -81,7 +81,7 @@ RUN ./configure
 RUN make
 RUN make install
 
-# Install velocyto
+# Install scanpy
 RUN pip3 install scanpy
 
 # Install velocyto
@@ -118,6 +118,11 @@ RUN pip3 install clusim
 # Install scVI
 RUN pip3 install scVI
 
-# Install 
+# Install umap-learn and tensorflow
 RUN pip3 install umap-learn==0.3.9
 RUN pip3 install tensorflow
+
+# Install CONICSmat
+RUN R -e "install.packages(c('beanplot','mixtools','pheatmap','zoo','squash'))"
+RUN R -e "BiocManager::install('biomaRt')"
+RUN R -e "devtools::install_github('diazlab/CONICS/CONICSmat', dep=FALSE)"
