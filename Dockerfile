@@ -124,5 +124,6 @@ RUN pip3 install tensorflow
 
 # Install CONICSmat
 RUN R -e "install.packages(c('beanplot','mixtools','pheatmap','zoo','squash'))"
-RUN R -e "BiocManager::install('biomaRt')"
+RUN R -e "install.packages(c('XML'))"
+RUN R -e "BiocManager::install('biomaRt','scran')"
 RUN R -e "devtools::install_github('diazlab/CONICS/CONICSmat', dep=FALSE)"
